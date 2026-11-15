@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202466">
+  <meta name="description" content="以互動時間軸回顧 SpaceX Starship Flight 1–15 的飛行目標、過程、成果與待改進項目。">
+  <title>Starship｜飛行測試紀錄</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#timeline">跳到飛行時間軸</a>
+  <header class="hero" id="home">
+    <div class="hero__inner">
+      <div class="hero__left">
+        <a class="brand" href="#home" aria-label="返回首頁：SpaceX 星艦飛行紀錄（非官方學習網站）">
+          <span class="brand__logo-window"><img class="brand__logo" src="assets/spacex-logo-user.png" alt="SpaceX" width="1911" height="517"></span>
+          <span class="brand__sub">/ FLIGHT ARCHIVE <span class="brand__disclaimer">· 非官方學習作品</span></span>
+        </a>
+        <div class="hero__title-wrap">
+          <p class="eyebrow">THE STARSHIP PROGRAM · TEST FLIGHT HISTORY</p>
+          <h1><span lang="en">STARSHIP</span><span class="hero__chinese">飛行測試紀錄</span></h1>
+          <p class="hero__description">每一次升空，都是邁向重複使用的一步。<br>從首次整合試飛，到飛行器返回地球。</p>
+        </div>
+      </div>
+      <div class="hero__right">
+        <p class="hero__aside-title">FLIGHT OVERVIEW <span class="hero__aside-line"></span></p>
+        <div class="stat"><span class="stat__number" id="flight-count">15</span><span class="stat__label">次累計飛行測試</span></div>
+        <div class="stat"><span class="stat__number">2023</span><span class="stat__label">首次整合飛行</span></div>
+        <div class="stat stat--next"><span class="stat__number">TBD</span><span class="stat__label">下一次發射日期</span></div>
+        <p class="hero__timestamp">資料截至 2026.11.15 21:00（台灣時間）</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="timeline-section" id="timeline" aria-label="Starship 飛行測試時間軸">
+      <div class="timeline-section__wash"></div>
+      <div class="timeline-heading">
+        <p class="timeline-heading__overline">FLIGHT HISTORY / 2023—2026</p>
+        <h2>探索每一次飛行</h2>
+        <p>點選時間軸圓點，查看任務目標、結果與改進方向。</p>
+      </div>
+      <div class="timeline-stage" id="timeline-stage">
+        <svg class="flight-route" id="flight-route" aria-hidden="true" preserveAspectRatio="none"></svg>
+        <div class="flight-points" id="flight-points" role="group" aria-label="選擇飛行任務"></div>
+        <article class="mission-card" id="mission-card" aria-live="polite" aria-label="任務詳細介紹" aria-hidden="true">
+          <div class="mission-card__topline">
+            <span class="mission-card__tag">STARSHIP MISSION FILE</span>
+            <button class="mission-card__close" id="close-mission" type="button" aria-label="關閉任務內容，返回時間軸">×</button>
+          </div>
+          <div id="mission-details"></div>
+        </article>
+      </div>
+      <div class="timeline-tail" aria-hidden="true"><span>THE JOURNEY CONTINUES</span><i></i> <span>FLIGHT 16 · TBD</span></div>
+    </section>
+
+    <footer class="sources" id="sources">
+      <div class="sources__inner">
+        <div class="sources__intro">
+          <p class="sources__eyebrow">REFERENCES & INFORMATION</p>
+          <h2>資料來源與說明</h2>
+          <p>本網站為學習展示作品，非 SpaceX 官方網站。資料優先參照 SpaceX 任務公告，並以其他可靠資料交叉查證。各日期皆為發射日，使用台灣時間（UTC+8）；結果並非單純以成功或失敗二分。</p>
+        </div>
+        <div class="sources__links">
+          <h3>官方與查證資料</h3>
+          <a href="https://www.spacex.com/launches/" target="_blank" rel="noopener noreferrer">SpaceX — Launches <span aria-hidden="true">↗</span></a>
+          <a href="https://www.spacex.com/updates" target="_blank" rel="noopener noreferrer">SpaceX — Updates <span aria-hidden="true">↗</span></a>
+          <a href="https://www.spacex.com/content" target="_blank" rel="noopener noreferrer">SpaceX — Starship Content <span aria-hidden="true">↗</span></a>
+          <a href="https://www.faa.gov/newsroom/statements/general-statements" target="_blank" rel="noopener noreferrer">FAA — 官方事件與調查公告 <span aria-hidden="true">↗</span></a>
+          <a href="https://oig.nasa.gov/wp-content/uploads/2026/03/final-report-ig-26-004-nasas-management-of-the-human-landing-system-contracts.pdf" target="_blank" rel="noopener noreferrer">NASA OIG — 早期飛行日期紀錄 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="sources__flights">
+          <h3>歷次飛行官方任務資料</h3>
+          <div class="source-grid" id="source-flight-grid"></div>
+        </div>
+        <div class="sources__bottom">
+          <span>STARSHIP FLIGHT ARCHIVE © 2026 · EDUCATIONAL PROJECT</span>
+          <span>背景與 Logo：本專題提供素材 · 非官方網站</span>
+          <a id="github-repo-link" hidden target="_blank" rel="noopener noreferrer">GITHUB REPOSITORY ↗</a>
+          <a href="#home">BACK TO TOP ↑</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+  <script src="data/flights.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

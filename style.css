@@ -1,0 +1,151 @@
+:root {
+  --blue-right: #202466;
+  --blue-left: #2E3494;
+  --line: #858DA3;
+  --dot: #5D6986;
+  --dot-active: #394FB5;
+  --date: #242D48;
+  --panel: #F2F5FC;
+  --ink: #263450;
+  --font-zh: "Microsoft JhengHei", "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --font-en: "Times New Roman", Times, serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; color: #202a47; font-family: var(--font-zh); background: #e7e9f0; }
+a { color: inherit; }
+button { font: inherit; }
+.skip-link { position: absolute; left: 10px; top: -60px; z-index: 999; padding: 12px 20px; background: white; color: black; }
+.skip-link:focus { top: 10px; }
+.hero { background: linear-gradient(to right, var(--blue-left) 0%, var(--blue-right) 100%); color: #fff; position: relative; }
+.hero:after { content: ""; position: absolute; bottom: 0; left: 50%; height: 1px; width: 50%; background: rgba(255,255,255,.16); }
+.hero__inner { margin: 0 auto; max-width: 1420px; min-height: 326px; padding: 32px 6.3% 29px; display: grid; grid-template-columns: minmax(0, 1.38fr) minmax(270px, .62fr); gap: 4.4rem; }
+.hero__left { display: flex; flex-direction: column; align-items: flex-start; }
+.brand { display: inline-flex; align-items: center; gap: 14px; max-width: 100%; white-space: nowrap; text-decoration: none; line-height: 1; }
+/* 使用者提供的 PNG 已有透明背景；在 CSS 裡只取出畫面中間的商標區域，原始圖片檔未修改。 */
+.brand__logo-window { display: block; position: relative; flex: 0 0 205px; width: 205px; height: 28px; overflow: hidden; }
+.brand__logo { display: block; position: absolute; width: 205px; max-width: none; height: auto; top: -11px; left: 0; filter: brightness(0) invert(1); }
+.brand__sub { display: inline-block; font-family: var(--font-en); font-size: 11px; letter-spacing: .09em; color: #dee4fc; font-weight: 400; }
+.brand__disclaimer { display: inline-block; font-family: var(--font-zh); font-size: 9px; color: #c0cbea; letter-spacing: .04em; }
+.hero__title-wrap { margin-top: auto; padding-top: 48px; padding-bottom: 9px; }
+.eyebrow, .hero__aside-title, .timeline-heading__overline, .sources__eyebrow { margin: 0 0 12px; font-family: var(--font-en); text-transform: uppercase; letter-spacing: .23em; font-size: 12px; color: #bfc9f4; }
+.hero h1 { margin: 0; font-weight: 400; display: flex; flex-direction: column; gap: 6px; }
+.hero h1 span:first-child { font-family: var(--font-en); font-size: clamp(50px, 6.1vw, 87px); letter-spacing: .035em; line-height: 1; }
+.hero__chinese { font-size: clamp(22px, 2.15vw, 32px); letter-spacing: .21em; font-weight: 500; }
+.hero__description { margin: 20px 0 0; color: #e0e4fb; font-size: 13px; line-height: 1.9; letter-spacing: .05em; }
+.hero__right { padding: 9px 0 1px 35px; border-left: 1px solid rgba(228,233,255,.2); display: flex; flex-direction: column; align-items: flex-start; }
+.hero__aside-title { display: flex; justify-content: flex-start; gap: 14px; align-items: center; white-space: nowrap; margin-bottom: 15px; }
+.hero__aside-line { height: 1px; width: 43px; background: #98a6d9; }
+.stat { display: flex; align-items: baseline; gap: 15px; min-height: 68px; width: 100%; border-bottom: 1px solid rgba(233,236,255,.18); }
+.stat__number { min-width: 96px; font-family: var(--font-en); font-size: 39px; line-height: 1.75; letter-spacing: -.02em; }
+.stat__label { color: #e1e5fb; font-size: 13px; letter-spacing: .06em; }
+.stat--next .stat__number { font-size: 29px; line-height: 2.34; letter-spacing: .07em; }
+.hero__timestamp { font-size: 11px; color: #bac2e9; letter-spacing: .03em; margin: 15px 0 0; }
+
+.timeline-section { position: relative; overflow: hidden; isolation: isolate; background-color: #d8dbe3; background-image: url("assets/starship-background.png"); background-position: center 26%; background-size: cover; background-repeat: no-repeat; }
+.timeline-section__wash { pointer-events: none; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(244,246,250,.13) 0%, rgba(241,242,246,.17) 44%, rgba(236,237,244,.42) 100%); }
+.timeline-heading { position: relative; z-index: 1; padding: 44px 6.8% 0; max-width: 1420px; margin: auto; }
+.timeline-heading__overline { color: #4e5d7d; margin-bottom: 9px; }
+.timeline-heading h2 { margin: 0 0 6px; font-size: clamp(24px, 3vw, 38px); font-weight: 600; letter-spacing: .12em; color: #1e2a49; }
+.timeline-heading p:last-child { margin: 0; font-size: 13px; color: #4b5973; letter-spacing: .04em; }
+.timeline-stage { position: relative; width: 100%; max-width: 1540px; margin: 0 auto; min-height: 730px; overflow: visible; }
+.flight-route { display: block; width: 100%; height: 100%; position: absolute; z-index: 1; pointer-events: none; overflow: visible; }
+.flight-route .flight-route__main { fill: none; stroke: var(--line); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; opacity: .86; }
+.flight-route .flight-route__glow { fill: none; stroke: #f9fbff; stroke-width: 8; stroke-linejoin: round; opacity: .32; }
+.flight-route .flight-route__future { fill: none; stroke: var(--line); stroke-width: 3.5; stroke-linecap: round; stroke-dasharray: 6 10; opacity: .75; }
+.flight-points { position: absolute; inset: 0; z-index: 3; }
+.flight-point { position: absolute; transform: translate(-50%, -50%); width: 42px; height: 42px; padding: 0; margin: 0; border: 0; display: flex; align-items: center; justify-content: center; background: transparent; cursor: pointer; color: var(--date); transition: opacity .5s ease, transform .35s ease, filter .35s ease; -webkit-tap-highlight-color: transparent; }
+.flight-point__dot { width: 22px; height: 22px; background: var(--dot); border-radius: 100%; box-shadow: 0 0 0 4px rgba(250,250,255,.35), 0 4px 12px rgba(31,45,79,.17); transition: transform .25s ease, background .3s ease, box-shadow .3s ease; }
+.flight-point__date { pointer-events: none; position: absolute; bottom: calc(100% - 2px); left: 50%; transform: translateX(-50%); white-space: nowrap; font-family: var(--font-en); font-size: 14px; letter-spacing: .025em; font-variant-numeric: tabular-nums; color: var(--date); font-weight: 600; text-shadow: 0 1px 2px rgba(255,255,255,.85), 0 -1px 2px rgba(255,255,255,.85); }
+.flight-point__number { position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); opacity: 0; font-family: var(--font-en); white-space: nowrap; font-size: 13px; font-weight: bold; transition: opacity .2s ease; color: #263450; pointer-events: none; }
+.flight-point:hover .flight-point__dot, .flight-point:focus-visible .flight-point__dot { background: var(--dot-active); transform: scale(1.42); box-shadow: 0 0 0 7px rgba(57,79,181,.18), 0 3px 9px rgba(32,36,102,.2); }
+.flight-point:hover .flight-point__number, .flight-point:focus-visible .flight-point__number { opacity: 1; }
+.flight-point:focus-visible { outline: 2px solid var(--dot-active); border-radius: 100%; }
+.flight-point.is-selected { z-index: 10; }
+.flight-point.is-selected .flight-point__dot { background: var(--dot-active); transform: scale(1.38); box-shadow: 0 0 0 7px rgba(57,79,181,.23), 0 3px 10px rgba(32,36,102,.2); }
+.flight-point.is-dimmed { opacity: 0; pointer-events: none; }
+.timeline-stage.has-selection .flight-route { opacity: .53; transition: opacity .35s ease; }
+.timeline-tail { position: relative; display: flex; justify-content: flex-end; align-items: center; gap: 14px; padding: 0 6.8% 40px; font-size: 11px; color: #33425f; letter-spacing: .12em; font-family: var(--font-en); }
+.timeline-tail i { display: block; width: 38px; height: 1px; background: #67748f; }
+
+.mission-card { position: absolute; z-index: 8; left: 50%; top: 45%; transform: translate(-50%, -44%) scale(.975); width: min(670px, calc(100% - 48px)); max-height: min(79%, 720px); overflow: auto; overscroll-behavior: contain; opacity: 0; visibility: hidden; pointer-events: none; padding: 26px 33px 29px; color: var(--ink); background: rgba(242,245,252,.965); border: 1px solid rgba(255,255,255,.94); border-radius: 13px; box-shadow: 0 24px 70px rgba(18,25,54,.25), 0 3px 12px rgba(28,39,71,.1); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: opacity .42s ease, transform .42s cubic-bezier(.2,.7,.2,1), visibility .42s; scrollbar-width: thin; }
+.mission-card.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, -50%) scale(1); }
+.mission-card__topline { position: relative; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ced6e9; padding-bottom: 12px; margin-bottom: 15px; }
+.mission-card__tag { font-family: var(--font-en); color: #5c6685; letter-spacing: .17em; font-size: 11px; }
+.mission-card__close { appearance: none; background: rgba(59,74,119,.06); width: 33px; height: 33px; font-size: 25px; line-height: 1; cursor: pointer; color: #56617b; border: 1px solid transparent; border-radius: 50%; }
+.mission-card__close:hover, .mission-card__close:focus-visible { background: #e1e6f4; border-color: #9caad2; }
+.mission-card__heading { display: flex; justify-content: space-between; align-items: baseline; gap: 13px; margin: 0 0 11px; }
+.mission-card__heading h3 { font-size: 38px; font-weight: 400; font-family: var(--font-en); letter-spacing: -.01em; margin: 0; color: var(--blue-right); }
+.mission-card__heading time { font-family: var(--font-en); font-size: 17px; color: #55637f; white-space: nowrap; }
+.mission-card__section { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 8px 15px; margin-top: 12px; }
+.mission-card__section h4 { font-size: 13px; letter-spacing: .06em; margin: 1px 0 0; font-weight: 700; color: #293f79; }
+.mission-card__section p { margin: 0; font-size: 13px; line-height: 1.83; color: #34435b; }
+.mission-card__divider { height: 1px; background: linear-gradient(90deg, #d4dcec, transparent); margin-top: 14px; }
+.mission-card__image { margin: 17px 0 0; padding: 0; }
+.mission-card__image img { display: block; width: 100%; max-height: 230px; object-fit: cover; object-position: center; border-radius: 7px; background: #dce2ee; }
+.mission-card__image figcaption { margin-top: 6px; font-size: 10px; color: #6a7385; text-align: right; }
+.mission-card__image[hidden] { display: none; }
+
+.sources { position: relative; color: #e8eaf5; background: #151d38; }
+.sources__inner { max-width: 1400px; margin: 0 auto; padding: 69px 6.8% 28px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr); column-gap: 8%; row-gap: 42px; }
+.sources__eyebrow { color: #9cadd6; }
+.sources h2 { font-size: 29px; font-weight: 500; margin: 0 0 16px; letter-spacing: .12em; }
+.sources p { color: #b5bed5; font-size: 13px; line-height: 2; }
+.sources h3 { color: #e4e9fb; font-size: 13px; margin: 2px 0 18px; letter-spacing: .12em; }
+.sources__links { display: flex; flex-direction: column; }
+.sources__links a { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(191,201,225,.16); text-decoration: none; font-size: 12px; color: #c2cee6; transition: color .2s ease, padding-left .2s ease; }
+.sources__links a:hover, .source-grid a:hover { color: white; padding-left: 5px; }
+.sources__flights { grid-column: 1 / -1; border-top: 1px solid rgba(191,201,225,.18); padding-top: 25px; }
+.source-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.source-grid a { display: block; border: 1px solid rgba(192,202,228,.2); border-radius: 4px; padding: 12px; color: #c5d0e9; font: 14px var(--font-en); text-decoration: none; transition: color .2s ease, border-color .2s ease, padding-left .2s ease; }
+.source-grid a:hover { border-color: rgba(225,234,250,.75); }
+.sources__bottom { grid-column: 1 / -1; border-top: 1px solid rgba(191,201,225,.18); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-family: var(--font-en); font-size: 10px; letter-spacing: .12em; color: #9aa8c8; }
+.sources__bottom a { text-decoration: none; color: #d0d9f3; }
+@media (max-width: 900px) {
+  .hero__inner { grid-template-columns: 1.1fr .9fr; gap: 1.5rem; padding-left: 5%; padding-right: 5%; }
+  .hero__right { padding-left: 21px; }
+  .stat__number { font-size: 31px; min-width: 79px; }
+  .stat__label { font-size: 11px; }
+  .hero h1 span:first-child { font-size: clamp(49px, 7vw, 73px); }
+  .flight-point__date { font-size: 12px; }
+  .sources__inner { padding-left: 5%; padding-right: 5%; }
+  .source-grid { grid-template-columns: repeat(4,1fr); }
+}
+@media (max-width: 620px) {
+  .brand { gap: 9px; }
+  .brand__logo-window { flex-basis: 150px; width: 150px; height: 22px; }
+  .brand__logo { width: 150px; top: -8px; }
+  .brand__sub { font-size: 9px; }
+  .brand__disclaimer { display: block; margin-top: 4px; font-size: 9px; }
+  .hero__inner { display: block; padding: 24px 6% 30px; min-height: 0; }
+  .hero__title-wrap { margin-top: 35px; padding: 0; }
+  .hero h1 span:first-child { font-size: 57px; }
+  .hero__chinese { font-size: 21px; }
+  .hero__description { font-size: 12px; margin-top: 13px; }
+  .hero__right { padding: 20px 0 0; border-left: none; border-top: 1px solid rgba(237,241,255,.23); margin-top: 29px; }
+  .hero__aside-title { margin: 0 0 5px; font-size: 10px; }
+  .stat { display: inline-flex; width: 100%; min-height: 49px; }
+  .stat__number, .stat--next .stat__number { min-width: 80px; font-size: 28px; line-height: 1.6; }
+  .hero__timestamp { margin-top: 12px; }
+  .timeline-section { background-position: center 32%; background-size: auto 100%; }
+  .timeline-heading { padding: 30px 6% 5px; }
+  .timeline-heading h2 { font-size: 25px; }
+  .timeline-heading p:last-child { font-size: 12px; }
+  .flight-point__date { font-size: 11px; }
+  .flight-point__dot { width: 20px; height: 20px; }
+  .mission-card { width: calc(100% - 25px); padding: 17px 17px 20px; max-height: 63vh; border-radius: 9px; top: 45%; }
+  .mission-card__heading h3 { font-size: 30px; }
+  .mission-card__heading time { font-size: 14px; }
+  .mission-card__section { display: block; margin-top: 11px; }
+  .mission-card__section h4 { margin-bottom: 3px; }
+  .mission-card__section p { font-size: 12px; line-height: 1.73; }
+  .timeline-tail { font-size: 9px; padding: 0 6% 28px; }
+  .sources__inner { display: block; padding: 45px 6% 22px; }
+  .sources__links { margin-top: 32px; }
+  .sources__flights { margin-top: 32px; }
+  .source-grid { grid-template-columns: repeat(3,1fr); }
+  .sources__bottom { margin-top: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
