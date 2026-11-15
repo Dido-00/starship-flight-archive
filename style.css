@@ -42,7 +42,7 @@ button { font: inherit; }
 .stat--next .stat__number { font-size: 29px; line-height: 2.34; letter-spacing: .07em; }
 .hero__timestamp { font-size: 11px; color: #bac2e9; letter-spacing: .03em; margin: 15px 0 0; }
 
-.timeline-section { position: relative; overflow: hidden; isolation: isolate; background-color: #d8dbe3; background-image: url("assets/starship-background.png"); background-position: center 26%; background-size: cover; background-repeat: no-repeat; }
+.timeline-section { position: relative; overflow: hidden; isolation: isolate; background-color: #d8dbe3; background-image: url("starship-background.png"); background-position: center 26%; background-size: cover; background-repeat: no-repeat; }
 .timeline-section__wash { pointer-events: none; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(244,246,250,.13) 0%, rgba(241,242,246,.17) 44%, rgba(236,237,244,.42) 100%); }
 .timeline-heading { position: relative; z-index: 1; padding: 44px 6.8% 0; max-width: 1420px; margin: auto; }
 .timeline-heading__overline { color: #4e5d7d; margin-bottom: 9px; }
